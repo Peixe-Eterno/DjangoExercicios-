@@ -1,0 +1,23 @@
+{% extends "background.html" %}
+
+{% block title %} <h1>Medicos</h1> {% endblock title %}
+
+{% block content %}
+    {% for i in list %}
+    <div>
+        <p>Nome: {{i.nome}} </p>
+        <p>Endereco: {{i.enderco}} </p>
+        <p>Telefone: {{i.telefone}} </p>
+        <p>Email: {{i.email}} </p>
+        <p>Data de Nascimento: {{i.data_nascimento}} </p>
+        <p>CRM: {{ "*"|repeat:i.crm|length }}</p>
+        <p>Especialidade: {{i.especialidade}} </p>
+
+        <div>
+            <a href="{% url 'editMedico' i.id %}"><button>Editar</button></a>
+            <a href="{% url 'delMedico' i.id %}"><button>Excluir</button></a>
+        </div>
+    </div>
+    {% endfor %}
+        
+{% endblock content %}

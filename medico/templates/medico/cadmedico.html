@@ -1,0 +1,48 @@
+{% extends "background.html" %}
+
+{% block content %}
+<form id="add-contact-form" class="form" action="#" method="POST" role="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div class="form-group">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" tabindex="1" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Data de Nascimento</label>
+        <input type="text" class="form-control" id="datanascimento" name="datanascimento" placeholder="Data de Nascimento" tabindex="3" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço" tabindex="2" required>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email" tabindex="4" required>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" tabindex="3" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Especialidade</label>
+        <input type="text" class="form-control" id="especialidade" name="especialidade" placeholder="Especialidade" tabindex="3" required>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Crm</label>
+        <input type="text" class="form-control" id="crm" name="crm" placeholder="Crm" tabindex="3" required>
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'ListMedicos' %}" class="btn">Voltar</a>
+        <button type="submit" class="btn">Confirm</button>
+    </div>
+</form>
+{% endblock %}

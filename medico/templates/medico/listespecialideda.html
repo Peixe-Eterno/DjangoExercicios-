@@ -1,0 +1,18 @@
+{% extends "background.html" %}
+
+{% block title %} <h1>Especialidades</h1> {% endblock title %}
+
+{% block content %}
+    {% for i in list %}
+    <div>
+        <p>Nome: {{i.nome}} </p>
+        <p>Descricao: {{i.descricao}} </p>
+
+        <div>
+            <a href="{% url 'editEspecialidade' i.id %}"><button>Editar</button></a>
+            <a href="{% url 'delEspecialidade' i.id %}"><button>Excluir</button></a>
+        </div>
+    </div>
+    {% endfor %}
+        
+{% endblock content %}
