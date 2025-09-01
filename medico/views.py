@@ -23,22 +23,22 @@ def addMedico(request):
         django_form = AddForm(request.POST)
         if django_form.is_valid():
 
-            medico_nome = django_form.data.get('nome'),
-            medico_endereco = django_form.data.get('endereco'),
-            medico_telefone = django_form.data.get('telefone'),
-            medico_email = django_form.data.get('email'),
-            medico_data_nascimento = django_form.data.get('data_nascimento'),
-            medico_crm = django_form.data.get('crm'),
-            medico_especialidade = django_form.data.get('especialidade'),
+            novo_medico_nome = django_form.data.get('nome'),
+            novo_medico_endereco = django_form.data.get('endereco'),
+            novo_medico_telefone = django_form.data.get('telefone'),
+            novo_medico_email = django_form.data.get('email'),
+            novo_medico_data_nascimento = django_form.data.get('data_nascimento'),
+            novo_medico_crm = django_form.data.get('crm'),
+            novo_medico_especialidade = django_form.data.get('especialidade'),
 
             Medico.objects.create(
-                medico_nome,
-                medico_endereco, 
-                medico_telefone, 
-                medico_email, 
-                medico_data_nascimento, 
-                medico_crm, 
-                medico_especialidade
+                nome = novo_medico_nome,
+                endereco = novo_medico_endereco,
+                telefone = novo_medico_telefone,
+                email = novo_medico_email,
+                data_nascimento = novo_medico_data_nascimento,
+                crm = novo_medico_crm,
+                especialidade = novo_medico_especialidade
             )
 
             return render(request, 'medico/listmedico.html', {'list': Medico.objects.all()})
@@ -46,7 +46,7 @@ def addMedico(request):
         else:
             return render(request, 'medico/cadmedico.html',)
     else:
-        return render(request, 'background.html',)
+        return render(request, 'medico/cadmedico.html',)
 
 def editMedico(request):
     pass
@@ -67,19 +67,19 @@ def addEspecialidade(request):
         django_form = AddForm(request.POST)
         if django_form.is_valid():
 
-            especialidade_nome = django_form.data.get('especialidade'),
-            especialidade_descricao = django_form.data.get('descricao'),
+            novo_especialidade_nome = django_form.data.get('especialidade'),
+            novo_especialidade_descricao = django_form.data.get('descricao'),
 
             Especialidade.objects.create(
-                especialidade_nome,
-                especialidade_descricao
+                nome = novo_especialidade_nome,
+                descricao = novo_especialidade_descricao
             )
 
             return render(request, 'medico/listespecialideda.html', {'list': Especialidade.objects.all()})
         else:
             return render(request, 'medico/cadespecialidade.html',)
     else:
-        return render(request, 'background.html',)
+        return render(request, 'medico/cadespecialidade.html',)
 
 def editEspecialidade(request):
     pass

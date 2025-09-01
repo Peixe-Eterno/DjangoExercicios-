@@ -1,6 +1,10 @@
 {% extends "medico/background.html" %}
 
 {% block title %} <h1>Especialidades</h1> {% endblock title %}
+{% block nav %}
+    {{block.super}}
+    <li><a href="{% url 'AddEspecialidade' %}">Criar</a></li>
+{% endblock nav %}
 
 {% block content %}
     {% for i in list %}

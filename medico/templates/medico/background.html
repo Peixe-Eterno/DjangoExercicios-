@@ -19,8 +19,10 @@
             
             <nav>
                 <ul>
-                    <li><a href="{% url 'ListMedicos' %}">Médicos</a></li>
-                    <li><a href="{% url 'ListEspecialidades' %}">Especialidae</a></li>
+                    {% block nav %}
+                        <li><a href="{% url 'ListMedicos' %}">Médicos</a></li>
+                        <li><a href="{% url 'ListEspecialidades' %}">Especialidae</a></li>
+                    {% endblock nav %}
                 </ul>
             </nav>
         </header>
