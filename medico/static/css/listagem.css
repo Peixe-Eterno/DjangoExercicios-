@@ -1,0 +1,97 @@
+/* ===============================
+   Feito por IA
+   Listagens / Cartões / Ações
+   =============================== */
+
+/* container geral dentro do <main> */
+main > .list{
+  display: grid;
+  gap: 14px;
+}
+
+/* como seus templates geram vários <div> "soltos", 
+   estilizamos cada item diretamente */
+main > div{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* pares "label: valor" */
+main > div p{
+  margin: 6px 0;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+main > div p::first-line{
+  color: #cbd5e1; /* slate-300 */
+}
+main > div p b,
+main > div p strong{
+  color: #e5e7eb;
+}
+
+/* bloco de ações (os botões dentro do segundo <div>) */
+main > div > div{
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+main > div > div a button{
+  appearance: none;
+  border: 1px solid rgba(148,163,184,.22);
+  background:
+    radial-gradient(120% 120% at 90% -10%, rgba(96,165,250,.22), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  color: #e5e7eb;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .12s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 22px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.06);
+}
+main > div > div a button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(148,163,184,.32);
+}
+main > div > div a[href*="Del"] button{
+  background:
+    radial-gradient(120% 120% at 90% -10%, rgba(239,68,68,.22), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border-color: rgba(239,68,68,.35);
+}
+
+/* cabeçalhos de listagem vindos do {% block title %} */
+main h1, main h2{
+  margin: 10px 2px 14px;
+  font-size: clamp(1.1rem, .9rem + 1vw, 1.6rem);
+  letter-spacing: .3px;
+}
+
+/* layout em grade quando houver muitos cards */
+@media (min-width: 880px){
+  /* se forem muitos <div>, transforme em grid */
+  main{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 14px;
+  }
+  /* bloco de título ocupa linha inteira */
+  main h1, main h2{ grid-column: 1 / -1; }
+  /* cada item (o <div> gerado no for) ocupa 4 colunas */
+  main > div{ grid-column: span 4; }
+}
+
+/* ajustar "CRM: *****" para ficar em linha única se você gerar estrelas */
+.crm-inline{
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: .5px;
+}

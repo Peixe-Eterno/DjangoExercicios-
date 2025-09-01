@@ -1,4 +1,4 @@
-{% extends "background.html" %}
+{% extends "medico/background.html" %}
 
 {% block title %} <h1>Medicos</h1> {% endblock title %}
 
@@ -10,12 +10,12 @@
         <p>Telefone: {{i.telefone}} </p>
         <p>Email: {{i.email}} </p>
         <p>Data de Nascimento: {{i.data_nascimento}} </p>
-        <p>CRM: {{ "*"|repeat:i.crm|length }}</p>
+        <p>CRM: {% for _ in i.crm %}*{% endfor %} </p>
         <p>Especialidade: {{i.especialidade}} </p>
 
         <div>
-            <a href="{% url 'editMedico' i.id %}"><button>Editar</button></a>
-            <a href="{% url 'delMedico' i.id %}"><button>Excluir</button></a>
+            <a href="{% url 'EditMedico' i.id %}"><button>Editar</button></a>
+            <a href="{% url 'DelMedico' i.id %}"><button>Excluir</button></a>
         </div>
     </div>
     {% endfor %}

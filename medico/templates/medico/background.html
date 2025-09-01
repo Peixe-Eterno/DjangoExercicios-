@@ -7,13 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <link rel="stylesheet" href="{% static 'css/medico.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/listagem.css'}" />
+        <link rel="stylesheet" href="{% static 'css/listagem.css' %}" />
 
         <title>Controle de Funcionarios</title>
     </head>
     <body>
         <header>
-            {% blck title %}
+            {% block title %}
                 <h1>Controle de Funcionarios</h1>
             {% endblock title %}
             
@@ -26,7 +26,7 @@
         </header>
         <main>
             {% block content %}
-                <div>
+                <div class="menu-buttons">
                     <a href="{% url 'ListMedicos'%}"><button>Médicos</button></a>
                     <a href="{% url 'ListEspecialidades' %}"><button>Especialidades</button></a>
                 </div>

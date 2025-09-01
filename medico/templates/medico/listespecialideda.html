@@ -1,4 +1,4 @@
-{% extends "background.html" %}
+{% extends "medico/background.html" %}
 
 {% block title %} <h1>Especialidades</h1> {% endblock title %}
 
@@ -9,8 +9,8 @@
         <p>Descricao: {{i.descricao}} </p>
 
         <div>
-            <a href="{% url 'editEspecialidade' i.id %}"><button>Editar</button></a>
-            <a href="{% url 'delEspecialidade' i.id %}"><button>Excluir</button></a>
+            <a href="{% url 'EditEspecialidade' i.id %}"><button>Editar</button></a>
+            <a href="{% url 'DelEspecialidade' i.id %}"><button>Excluir</button></a>
         </div>
     </div>
     {% endfor %}
